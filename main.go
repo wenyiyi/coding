@@ -11,7 +11,11 @@ func main() {
 	//towSum := two_pointers.TowSum(nums, target)
 	//fmt.Println(towSum)
 
-	heights := []int{3, 4, 1, 2, 2, 4, 1, 3, 2}
-	maxArea := two_pointers.MaxArea(heights)
-	fmt.Println(maxArea)
+	//heights := []int{3, 4, 1, 2, 2, 4, 1, 3, 2}
+	//maxArea := two_pointers.MaxArea(heights)
+	//fmt.Println(maxArea)
+
+	nums := []int{11, 4, 9, 6, 15, 18}
+	result := two_pointers.TriangleNumber(nums)
+	fmt.Println(result)
 }
