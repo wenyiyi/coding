@@ -19,7 +19,7 @@ func main() {
 	//result := two_pointers.TriangleNumber(nums)
 	//fmt.Println(result)
 
-	nums := []int{2, 1, 5, 1, 3, 2}
-	sum := sliding_window.MaxSum(nums, 3)
+	nums := []int{2, 11, 4, 5, 3, 9, 2}
+	sum := sliding_window.MaxScore(nums, 3)
 	fmt.Println(sum)
 }
