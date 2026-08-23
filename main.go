@@ -1,6 +1,9 @@
 package main
 
-import "coding/two_pointers"
+import (
+	"coding/sliding_window"
+	"fmt"
+)
 
 func main() {
 	//nums := []int{1, 3, 4, 6, 8, 10, 13}
@@ -16,7 +19,7 @@ func main() {
 	//result := two_pointers.TriangleNumber(nums)
 	//fmt.Println(result)
 
-	nums := []int{2, 1, 2, 0, 1, 0, 1, 0, 1}
-	two_pointers.SortColors1(nums)
-
+	nums := []int{2, 1, 5, 1, 3, 2}
+	sum := sliding_window.MaxSum(nums, 3)
+	fmt.Println(sum)
 }
