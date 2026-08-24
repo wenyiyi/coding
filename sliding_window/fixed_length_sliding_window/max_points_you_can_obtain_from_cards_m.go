@@ -1,4 +1,4 @@
-package sliding_window
+package fixed_length_sliding_window
 
 /*
 DESCRIPTION (inspired by Leetcode.com)

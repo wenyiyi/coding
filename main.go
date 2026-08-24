@@ -1,7 +1,7 @@
 package main
 
 import (
-	"coding/sliding_window"
+	"coding/sliding_window/fixed_length_sliding_window"
 	"fmt"
 )
 
@@ -20,6 +20,6 @@ func main() {
 	//fmt.Println(result)
 
 	nums := []int{2, 11, 4, 5, 3, 9, 2}
-	sum := sliding_window.MaxScore(nums, 3)
+	sum := fixed_length_sliding_window.MaxScore(nums, 3)
 	fmt.Println(sum)
 }
