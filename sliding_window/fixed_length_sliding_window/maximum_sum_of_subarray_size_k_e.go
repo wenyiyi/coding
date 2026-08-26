@@ -1,6 +1,9 @@
 package fixed_length_sliding_window
 
 /*
+https://www.hellointerview.com/learn/code/sliding-window/maximum-sum-of-subarrays-of-size-k
+
+Maximum Sum of Subarrays of Size K
 DESCRIPTION
 Given an array of integers nums and an integer k, find the maximum sum of any contiguous subarray of size k.
 

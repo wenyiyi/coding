@@ -3,6 +3,9 @@ package fixed_length_sliding_window
 import "math"
 
 /*
+https://www.hellointerview.com/learn/code/sliding-window/maximum-sum-of-distinct-subarrays-with-length-k
+
+Max Sum of Distinct Subarrays Length k
 DESCRIPTION (inspired by Leetcode.com)
 Given an integer array nums and an integer k, write a function to identify the highest possible sum of a subarray within nums,
 where the subarray meets the following criteria: its length is k, and all of its elements are unique. If no such subarray exists, return 0.

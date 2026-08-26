@@ -3,6 +3,9 @@ package two_pointers
 import "fmt"
 
 /*
+		https://www.hellointerview.com/learn/code/two-pointers/sort-colors
+
+		Sort Colors
 		DESCRIPTION (inspired by Leetcode.com)
 		Write a function to sort a given integer array nums in-place (and without the built-in sort function),
 		where the array contains n integers that are either 0, 1, and 2

@@ -1,6 +1,9 @@
 package two_pointers
 
 /*
+	https://www.hellointerview.com/learn/code/two-pointers/container-with-most-water
+
+	Container With Most Water
 	DESCRIPTION (inspired by Leetcode.com)
 	Given an array heights where each element represents the height of a vertical line,
     pick two lines to act as the walls of a container.

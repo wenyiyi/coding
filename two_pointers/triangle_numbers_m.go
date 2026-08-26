@@ -3,6 +3,9 @@ package two_pointers
 import "sort"
 
 /*
+	https://www.hellointerview.com/learn/code/two-pointers/valid-triangle-number
+
+	Triangle Numbers
 	DESCRIPTION (inspired by Leetcode.com)
 	Write a function to count the number of triplets in an integer array nums that could form the sides of a triangle.
 

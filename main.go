@@ -1,7 +1,7 @@
 package main
 
 import (
-	"coding/sliding_window/fixed_length_sliding_window"
+	"coding/sliding_window/variable_length_sliding_window"
 	"fmt"
 )
 
@@ -19,7 +19,11 @@ func main() {
 	//result := two_pointers.TriangleNumber(nums)
 	//fmt.Println(result)
 
-	nums := []int{2, 11, 4, 5, 3, 9, 2}
-	sum := fixed_length_sliding_window.MaxScore(nums, 3)
+	//nums := []int{2, 11, 4, 5, 3, 9, 2}
+	//sum := fixed_length_sliding_window.MaxScore(nums, 3)
+	//fmt.Println(sum)
+
+	fruits := []int{3, 3, 2, 1, 2, 1, 0}
+	sum := variable_length_sliding_window.FruitIntoBaskets(fruits)
 	fmt.Println(sum)
 }

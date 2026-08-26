@@ -1,6 +1,9 @@
 package two_pointers
 
 /*
+	https://www.hellointerview.com/learn/code/two-pointers/two-sum
+
+	Two Sum (Sorted Array)
 	DESCRIPTION
 	Given a sorted array of integers nums, determine if there exists a pair of numbers that sum to a given target.
 	Example:

@@ -1,6 +1,9 @@
 package fixed_length_sliding_window
 
 /*
+https://www.hellointerview.com/learn/code/sliding-window/maximum-points-you-can-obtain-from-cards
+
+Max Points You Can Obtain From Cards
 DESCRIPTION (inspired by Leetcode.com)
 Given an array of integers representing card values,
 write a function to calculate the maximum score you can achieve by picking exactly k cards.
