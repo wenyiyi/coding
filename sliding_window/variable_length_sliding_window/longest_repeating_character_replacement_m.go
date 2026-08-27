@@ -15,7 +15,29 @@ The longest substring with identical letters is "BBBBB", which has a length of 5
 
 */
 
+/*
+思路：计算符合条件的最大窗口的长度，符合条件的最大窗口的长度 - 窗口内相同字符的个数 = k
+Solution: Find the longest valid window
+A valid window: window length - the count of the most frequent character <= k
+*/
 func characterReplacement(s string, k int) int {
+	start := 0
+	countMap := make(map[byte]int)
+	maxSameCount := 0 // The maximum number of the same character in the current window
+	result := 0
 
-	return 0
+	for end := range s {
+		countMap[s[end]]++
+		maxSameCount = max(maxSameCount, countMap[s[end]])
+
+		// replacements needed = window length - most same character count
+		if end-start+1-maxSameCount > k {
+			countMap[s[start]]--
+			start++
+		}
+
+		result = max(result, end-start+1)
+	}
+
+	return result
 }
