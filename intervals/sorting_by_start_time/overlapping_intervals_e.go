@@ -26,7 +26,7 @@ func canAttendMeetings(intervals [][]int) bool {
 	if len(intervals) == 0 {
 		return true
 	}
-	// sort by each first number
+	// sort by start time
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
 	})
