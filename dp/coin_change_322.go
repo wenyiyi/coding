@@ -47,7 +47,7 @@ func coinChange(coins []int, amount int) int {
 
 	// 0 1 2 3 4 5 6 7 8 9 10 11
 
-	// dp[0] = 0，其他位置设置成一个很大的数字，不可能的数字
+	//初始化： dp[0] = 0，其他位置设置成一个很大的数字，不可能的数字
 	for i := 1; i < maxCount; i++ {
 		dp[i] = maxCount
 	}
