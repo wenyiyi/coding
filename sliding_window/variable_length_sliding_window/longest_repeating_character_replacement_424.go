@@ -2,6 +2,7 @@ package variable_length_sliding_window
 
 /*
 https://www.hellointerview.com/learn/code/sliding-window/longest-repeating-character-replacement
+https://leetcode.com/problems/longest-repeating-character-replacement/description/
 
 Longest Repeating Character Replacement
 DESCRIPTION (inspired by Leetcode.com)

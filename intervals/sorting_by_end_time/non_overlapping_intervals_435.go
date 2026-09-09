@@ -4,6 +4,7 @@ import "sort"
 
 /*
 https://www.hellointerview.com/learn/code/intervals/non-overlapping-intervals
+https://leetcode.com/problems/non-overlapping-intervals/description/
 
 Non-Overlapping Intervals
 DESCRIPTION (inspired by Leetcode.com)

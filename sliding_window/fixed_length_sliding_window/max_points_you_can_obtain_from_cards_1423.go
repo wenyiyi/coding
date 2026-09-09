@@ -2,6 +2,7 @@ package fixed_length_sliding_window
 
 /*
 https://www.hellointerview.com/learn/code/sliding-window/maximum-points-you-can-obtain-from-cards
+https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/description/
 
 Max Points You Can Obtain From Cards
 DESCRIPTION (inspired by Leetcode.com)

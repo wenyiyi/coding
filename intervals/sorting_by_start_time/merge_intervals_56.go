@@ -4,6 +4,7 @@ import "sort"
 
 /*
 https://www.hellointerview.com/learn/code/intervals/merge-intervals
+https://leetcode.com/problems/merge-intervals/description/
 
 Merge Intervals
 DESCRIPTION (inspired by Leetcode.com)

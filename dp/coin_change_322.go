@@ -35,6 +35,9 @@ dp[0] = 0 凑出 0 元，需要 0 枚硬币
 */
 
 func coinChange(coins []int, amount int) int {
+	if len(coins) == 0 {
+		return 0
+	}
 
 	maxCount := amount + 1
 
@@ -50,6 +53,8 @@ func coinChange(coins []int, amount int) int {
 	}
 
 	// 一开始只有 1元硬币
+	// coin = 当前硬币
+	// currAmount = 当前金额
 	for _, coin := range coins {
 		// 然后分别用1元凑 1，2 ，3，4，5
 		for currAmount := coin; currAmount <= amount; currAmount++ {

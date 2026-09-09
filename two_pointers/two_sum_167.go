@@ -2,6 +2,7 @@ package two_pointers
 
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/two-sum
+	https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 
 	Two Sum (Sorted Array)
 	DESCRIPTION

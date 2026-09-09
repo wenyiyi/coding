@@ -2,6 +2,7 @@ package two_pointers
 
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/trapping-rain-water
+	https://leetcode.com/problems/trapping-rain-water/description/
 
 	Trapping Rain Water
 	DESCRIPTION (inspired by Leetcode.com)

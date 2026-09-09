@@ -2,6 +2,7 @@ package variable_length_sliding_window
 
 /*
 https://www.hellointerview.com/learn/code/sliding-window/longest-substring-without-repeating-characters
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
 Longest Substring Without Repeating Characters
 DESCRIPTION (inspired by Leetcode.com)

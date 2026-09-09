@@ -5,6 +5,8 @@ import "sort"
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/3-sum
 
+	https://leetcode.com/problems/3sum/description/
+
 	3-Sum
 	DESCRIPTION (inspired by Leetcode.com)
 	Given an input integer array nums, write a function to find all unique triplets [nums[i], nums[j], nums[k]]

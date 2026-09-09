@@ -2,6 +2,7 @@ package variable_length_sliding_window
 
 /*
 https://www.hellointerview.com/learn/code/sliding-window/variable-length
+https://leetcode.com/problems/fruit-into-baskets/description/
 
 Fruit Into Baskets
 DESCRIPTION (inspired by Leetcode.com)

@@ -4,6 +4,7 @@ import "fmt"
 
 /*
 		https://www.hellointerview.com/learn/code/two-pointers/sort-colors
+		https://leetcode.com/problems/sort-colors/description/
 
 		Sort Colors
 		DESCRIPTION (inspired by Leetcode.com)

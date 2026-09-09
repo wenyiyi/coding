@@ -4,6 +4,7 @@ import "math"
 
 /*
 https://www.hellointerview.com/learn/code/sliding-window/maximum-sum-of-distinct-subarrays-with-length-k
+https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/description/
 
 Max Sum of Distinct Subarrays Length k
 DESCRIPTION (inspired by Leetcode.com)

@@ -2,6 +2,7 @@ package two_pointers
 
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/move-zeroes
+	https://leetcode.com/problems/move-zeroes/description/
 
 	Move Zeroes
 	Given an integer array nums, write a function to rearrange the array by moving all zeros to the end

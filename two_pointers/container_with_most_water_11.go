@@ -3,6 +3,8 @@ package two_pointers
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/container-with-most-water
 
+	https://leetcode.com/problems/container-with-most-water/description/
+
 	Container With Most Water
 	DESCRIPTION (inspired by Leetcode.com)
 	Given an array heights where each element represents the height of a vertical line,

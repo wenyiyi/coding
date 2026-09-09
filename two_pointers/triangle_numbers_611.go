@@ -4,6 +4,7 @@ import "sort"
 
 /*
 	https://www.hellointerview.com/learn/code/two-pointers/valid-triangle-number
+	https://leetcode.com/problems/valid-triangle-number/description/
 
 	Triangle Numbers
 	DESCRIPTION (inspired by Leetcode.com)

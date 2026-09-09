@@ -4,6 +4,7 @@ import "strings"
 
 /*
 https://www.hellointerview.com/learn/code/stack/decode-string
+https://leetcode.com/problems/decode-string/description/
 
 Decode String
 DESCRIPTION (inspired by Leetcode.com)

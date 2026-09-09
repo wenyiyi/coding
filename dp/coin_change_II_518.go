@@ -56,6 +56,9 @@ dp       [1, 1, 1, 1, 1, 1]
 dp[a] += dp[a-coin]
 */
 func change(amount int, coins []int) int {
+	if len(coins) == 0 {
+		return 0
+	}
 
 	maxLen := amount + 1
 
@@ -67,6 +70,8 @@ func change(amount int, coins []int) int {
 	dp[0] = 1
 
 	// 一开始只有 1元硬币
+	// coin = 当前硬币
+	// currAmount = 当前金额
 	for _, coin := range coins {
 
 		// 然后分别用1元凑 1，2 ，3，4，5

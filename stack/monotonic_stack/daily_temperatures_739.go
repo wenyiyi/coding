@@ -2,6 +2,7 @@ package monotonic_stack
 
 /*
 https://www.hellointerview.com/learn/code/stack/daily-temperatures
+https://leetcode.com/problems/daily-temperatures/description/
 
 Daily Temperatures
 DESCRIPTION (inspired by Leetcode.com)
