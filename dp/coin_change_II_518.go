@@ -31,6 +31,7 @@ Output: 1
 */
 
 /*
+问有多少种组合
 dp[i] = 凑出金额 i 有多少种方法
 金额      0  1  2  3  4  5
 dp       [?, ?, ?, ?, ?, ?]
@@ -56,14 +57,16 @@ dp[a] += dp[a-coin]
 */
 func change(amount int, coins []int) int {
 
+	maxLen := amount + 1
+
 	// amount = 5, coins = [1,2,5]
 	// dp[i] = 凑出金额 i 有多少种方法     0 1 2 ... 5
-	dp := make([]int, amount+1)
+	dp := make([]int, maxLen)
 
 	// 初始化，凑出金额 0 有1种方法，什么都不拿
 	dp[0] = 1
 
-	// 一开始只有 1元
+	// 一开始只有 1元硬币
 	for _, coin := range coins {
 
 		// 然后分别用1元凑 1，2 ，3，4，5
