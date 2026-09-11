@@ -35,12 +35,13 @@ func levelOrder(root *TreeNode) [][]int {
 	// 把root放入队列
 	queue := []*TreeNode{root}
 	for len(queue) > 0 {
-		size := len(queue)
+		// 记录当前 queue 的数量，固定下来
+		currQueueSize := len(queue)
 		// level := make([]int, size) 默认都是0，不要用
 		level := []int{}
 
 		// 一层一层处理，队列没有数据了就表示这一层处理完了
-		for i := 0; i < size; i++ {
+		for i := 0; i < currQueueSize; i++ {
 			// 模拟出队
 			node := queue[0]
 			// 1: 表示从1取到最后
