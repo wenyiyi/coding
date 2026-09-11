@@ -13,6 +13,11 @@ i is divisible by perm[i].
 
 Given an integer n, return the number of the beautiful arrangements that you can construct(构造).
 
+consecutive 连续的
+at least 至少
+either 任何一个
+
+
 Example 1:
 Input: n = 2
 Output: 2
