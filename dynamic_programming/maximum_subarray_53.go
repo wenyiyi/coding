@@ -1,9 +1,8 @@
-package dp
+package dynamic_programming
 
 /*
-Given an integer array nums, find the subarray with the largest sum, and return its sum.
 https://leetcode.com/problems/maximum-subarray/
-
+Given an integer array nums, find the subarray with the largest sum, and return its sum.
 
 Example 1:
 Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -23,7 +22,8 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 /*
 dp[i] = 以 nums[i] 结尾的最大连续子数组和
-subarray 要求连续
+subarray: a contiguous/kənˈtiɡyəwəs/ non-empty sequence of elements within an array
+subsequence: 不要求 contiguous
 */
 func maxSubArray(nums []int) int {
 	if len(nums) == 0 {

@@ -4,7 +4,7 @@ package backtracking
 https://leetcode.com/problems/beautiful-arrangement/description/
 Beautiful Arrangement
 
-Suppose you have n integers labeled 1 through n.
+Suppose you have n integers labeled(已标记) 1 through n.
 A permutation(排列) of those n integers perm (1-indexed) is considered a beautiful arrangement(安排)
 if for every i (1 <= i <= n), either of the following is true(以下任一说法正确，及or):
 
@@ -32,7 +32,11 @@ The second beautiful arrangement is [2,1]:
 Example 2:
 Input: n = 1
 Output: 1
+
+
+Backtracking 关键词：constructed
 */
+
 /*
 perm[i] % i == 0
 i % perm[i] == 0
@@ -113,6 +117,22 @@ i=1
 │
 */
 
+/*
+
+for 每个选择 {
+    if 不合法 {
+        continue          // Pruning 剪枝
+    }
+
+    做选择
+
+    backtrack(下一层)
+
+    撤销选择              // Backtrack
+}
+
+*/
+
 func countArrangement(n int) int {
 	// n+1，因为下标从1开始
 	// n=3
@@ -125,7 +145,7 @@ func countArrangement(n int) int {
 
 func gerValidPerm(i int, n int, perm []bool) int {
 	// 所有位置都放完了 [ , , ]，表示找到1个合法的
-	if i > n {
+	if i > n { // i (1 <= i <= n)
 		return 1
 	}
 
@@ -145,7 +165,7 @@ func gerValidPerm(i int, n int, perm []bool) int {
 		// 做选择
 		perm[num] = true
 		// 递归放下一个数字, 共用一个 perm。 只是把 i + 1 的值传给下一层，上一层的 i 根本没变
-		result += gerValidPerm(i+1, num, perm)
+		result += gerValidPerm(i+1, n, perm)
 		// 撤销选择
 		perm[num] = false
 	}

@@ -1,4 +1,4 @@
-package dp
+package dynamic_programming
 
 /*
 https://www.scribd.com/document/1059776896/Expedia-SDE2-OA-Coding%E5%A4%A7%E5%85%A8?utm_source=chatgpt.com
@@ -54,26 +54,30 @@ num1 <= num2 <= num3 <= num4
 5个人    │    1    2    2
 6个人    │    1    3    3
 
+p 个人分 g 个非递减的正数组
+按照第一组是不是 1，把所有答案分成两类。
+- 第一类：第一组是 1，把这一组直接删掉
+- 第二类：第一组 > 1，如果最小的一组都大于 1，那么所有组都至少是 2，每组减1
 
 	  dp[5][2]
       5个人分2组
           ↓
-    ┌─────┴─────┐
-    ↓           ↓
-  [1,4]       [2,3]
-    ↓           ↓
-  去掉1       每组减1
-    ↓           ↓
-   [4]         [1,2]
-    ↓           ↓
-dp[4][1]     dp[3][2]
+    ┌─────┴──────────────┐
+    ↓                    ↓
+  [1,4]                [2,3]
+    ↓                    ↓
+  去掉1                每组减1
+    ↓                    ↓
+   [4](4个人1组)         [1,2]
+    ↓                    ↓
+  dp[4][1]            dp[3][2]
 
 dp[5][2] = dp[4][1] + dp[3][2] = dp[5-1][2-1] + dp[5-2][2] = dp[p][g] = dp[p-g][g] + dp[p-1][g-1]
 
 */
 
 func countOptions(people int32, groups int32) int64 {
-	// 把 people 个人拆成 groups 组有多少种方案
+
 	//dp
 	//↓
 	//[
@@ -83,6 +87,7 @@ func countOptions(people int32, groups int32) int64 {
 	//  ...
 	//  nil    // dp[n] 8个人   长度：8+1=9
 	//]
+	// 把 p 个人拆成 g 组有多少种方案
 	dp := make([][]int64, people+1) // people+1 表示行数
 	for i := range dp {
 		// 注意：每一行还要继续初始化，第二维表示的是组数 g，而我们需要表示

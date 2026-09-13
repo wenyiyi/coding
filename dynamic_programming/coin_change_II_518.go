@@ -1,14 +1,16 @@
-package dp
+package dynamic_programming
 
 /*
 Coin Change II
 
 https://leetcode.com/problems/coin-change-ii/
-You are given an integer array coins representing coins of different denominations
+You are given an integer array coins representing coins of different denominations(面额)
 and an integer amount representing a total amount of money.
 Return the number of combinations that make up that amount.
+
 If that amount of money cannot be made up by any combination of the coins, return 0.
-You may assume that you have an infinite number of each kind of coin.
+
+You may assume that you have an infinite number of each kind of coin.(每种面额的硬币都有无限个，可以重复使用)
 The final answer is guaranteed to fit into a signed 32-bit integer.
 
 Example 1:

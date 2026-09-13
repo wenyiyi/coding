@@ -1,4 +1,4 @@
-package dp
+package dynamic_programming
 
 /*
 https://leetcode.com/problems/coin-change/
@@ -7,7 +7,7 @@ Coin Change
 Return the fewest number of coins that you need to make up that amount.
 If that amount of money cannot be made up by any combination of the coins, return -1.
 
-You may assume that you have an infinite number of each kind of coin.
+You may assume that you have an infinite(无限的) number of each kind of coin.
 
 
 Example 1:
@@ -23,6 +23,10 @@ Example 3:
 Input: coins = [1], amount = 0
 Output: 0
 
+DP 规律
+1. Can I break the problem into smaller subproblems?
+2. Does the same subproblem appear multiple times?
+3. Same state → same answer?
 */
 
 /*
