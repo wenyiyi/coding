@@ -2,6 +2,8 @@ package dynamic_programming
 
 /*
 https://www.scribd.com/document/1059776896/Expedia-SDE2-OA-Coding%E5%A4%A7%E5%85%A8?utm_source=chatgpt.com
+(traveloka笔试题)
+
 Grouping Options(分组方案)
 
 Given a number of people n and a number of groups k,(给定人数和组数)
