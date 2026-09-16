@@ -23,8 +23,7 @@ s1 and s2 consist of lowercase English letters.
 /*
 0 1 2 3 4 5 6 7
 e i d b a o o o 长度8
-
-ab 长度2
+a b 长度2
 8-2=6
 
 window-> size=len(s1)
@@ -32,10 +31,11 @@ window-> size=len(s1)
 hashMap a->1   b->1  if count equal, len equal, true
 */
 
-// 暴力解法
+// 暴力解法   O(n×m)
 func checkInclusion(s1 string, s2 string) bool {
 	s1Map := map[rune]int{}
 
+	// 计算短字符串里每个字符的次数
 	for _, ch := range s1 {
 		if s1Map[ch] > 0 {
 			s1Map[ch] = s1Map[ch] + 1
@@ -44,7 +44,9 @@ func checkInclusion(s1 string, s2 string) bool {
 		}
 	}
 
+	// 遍历长字符串
 	for i := 0; i <= len(s2)-len(s1); i++ {
+		// 每一次都重新创建窗口
 		windowMap := map[rune]int{}
 		for j := i; j < i+len(s1); j++ {
 			if windowMap[rune(s2[j])] > 0 {
@@ -65,4 +67,50 @@ func checkInclusion(s1 string, s2 string) bool {
 		}
 	}
 	return false
+}
+
+// 真正的滑动窗口 O(n*k)
+func checkInclusion2(s1 string, s2 string) bool {
+	// 第一步校验入参
+	if len(s1) > len(s2) {
+		return false
+	}
+
+	// 初始化第一个窗口
+	s1Map := map[rune]int{}
+	windowMap := map[rune]int{}
+	// 计算短字符串里每个字符的次数
+	for _, ch := range s1 {
+		s1Map[ch]++
+	}
+	for i := 0; i < len(s1); i++ {
+		windowMap[rune(s2[i])]++
+	}
+
+	// 先检查第一个窗口
+	if same(s1Map, windowMap) {
+		return true
+	}
+
+	// 遍历长字符串，滑动产生新窗口
+	for i := 0; i+len(s1) < len(s2); i++ {
+		windowMap[rune(s2[i])]--
+		windowMap[rune(s2[i+len(s1)])]++
+
+		// 检查新窗口
+		if same(s1Map, windowMap) {
+			return true
+		}
+	}
+	return false
+}
+
+// 比较是否为合法 permutations
+func same(a, b map[rune]int) bool {
+	for k, v := range a {
+		if b[k] != v {
+			return false
+		}
+	}
+	return true
 }
