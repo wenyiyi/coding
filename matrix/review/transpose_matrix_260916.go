@@ -40,6 +40,7 @@ func transpose(matrix [][]int) [][]int {
 	for row := 0; row < rows; row++ {
 		// 列
 		for col := 0; col < cols; col++ {
+			// todo 直接填值就行，不需要交换
 			result[col][row] = matrix[row][col]
 		}
 	}

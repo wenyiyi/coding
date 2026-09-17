@@ -23,12 +23,14 @@ Output: [1,1,4,2,1,1,0,0]
 75 出栈 输出 6-2=4
 */
 func dailyTemperatures(temps []int) []int {
+	// todo 需要初始化，不然后续result[peekIndex] 越界
 	result := make([]int, len(temps))
 	indexStack := []int{}
 
 	for i := range temps {
-		// 栈顶
+		// 栈顶 todo 比较方向写反，当前更热：temps[i] > temps[stackTop]
 		for len(indexStack) > 0 && temps[indexStack[len(indexStack)-1]] < temps[i] {
+			// todo peekIndex 一开始放在循环外 每次 pop 后栈顶会变，所以必须重新读取
 			peekIndex := indexStack[len(indexStack)-1]
 			result[peekIndex] = i - peekIndex
 			indexStack = indexStack[:len(indexStack)-1] // 出栈
@@ -38,11 +40,3 @@ func dailyTemperatures(temps []int) []int {
 
 	return result
 }
-
-/*
-复盘：
-1 make([]int, len(temps)) 初始化 stack Stack 一开始应该是空的
-2 空栈时提前 peek，应该先判断 len(stack) > 0，再取栈顶
-3 比较方向写反，当前更热：temps[i] > temps[stackTop]
-4 peekIndex 一开始放在循环外 每次 pop 后栈顶会变，所以必须重新读取
-*/

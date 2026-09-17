@@ -64,7 +64,7 @@ func rotateMatrix1(matrix [][]int) [][]int {
 	for left < right && top < bottom {
 
 		// 顺序别写反了
-		var temp = matrix[top][left] //temp 存左上角的数
+		var temp = matrix[top][left] //todo temp 存左上角的数
 
 		// 先输出外圈
 
