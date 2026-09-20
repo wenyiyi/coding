@@ -33,7 +33,7 @@ type RandomizedSet struct {
 	values   []int
 }
 
-func Constructor() RandomizedSet {
+func Constructor919() RandomizedSet {
 	// todo 搞懂各种初始化
 	// m1 := map[int]int{}       → 空 map，已初始化 ✅
 	// m2 := make(map[int]int)   → 空 map，已初始化 ✅
