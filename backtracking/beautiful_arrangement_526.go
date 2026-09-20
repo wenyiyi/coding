@@ -34,104 +34,36 @@ Example 2:
 Input: n = 1
 Output: 1
 
-
 Backtracking 关键词：constructed
 */
 
 /*
-perm[i] % i == 0
-i % perm[i] == 0
 
-n=2
-[1,2]
-i=1
-perm[1]=1
-1%1=0
+Pattern: Backtracking + Pruning剪枝
 
-i=2
-perm[2]=2
-2%2=0
+本质：
+Permutation + 额外合法条件
 
-[2,1]
-i=1
-perm[1]=2
-2%1=0
+每层递归填一个 position：
+1. 遍历所有数字
+2. 已使用 → skip
+3. 不满足整除条件 → pruning
+4. 做选择 used[num] = true
+5. 递归填下一个 position
+6. 撤销 used[num] = false
 
-i=2
-perm[2]=2
-2%2=0
+position = 1 → 给第 1 个位置选数字
+position = 2 → 给第 2 个位置选数字
+position = 3 → 给第 3 个位置选数字
 
-n=3
-[1, 2, 3]
-i=1: 1 % 1 == 0 ✅
-i=2: 2 % 2 == 0 ✅
-i=3: 3 % 3 == 0 ✅
+合法条件：
+num % position == 0 || position % num == 0
 
-[1,3,2]
-i=1: 1 % 1 == 0 ✅
-i=2:
-3 % 2 != 0
-2 % 3 != 0
+todo 只求合法排列数量，不需要具体排列，因此不需要 path。
 
-
-This is basically a permutation problem with pruning.
-I use backtracking to fill each position,
-and I only continue if the current number satisfies the divisibility condition.
-
-一格一格放数字
-position 1
-   ↓
-选一个没用过的数字
-   ↓
-position 2
-   ↓
-再选一个没用过的数字
-   ↓
-position 3
-每次选择之前先判断,num % position == 0 || position % num == 0
-*/
-
-/*
-为什么i不需要重新回到1？
-因为 i 不是你手动修改后需要恢复的状态，它是每一层递归自己的局部变量，
-
-i            → 每层自己的变量 → return 后自然恢复
-used[]       → 所有层共享状态 → 必须手动回溯
-
-
-i=1
-│
-├─ 选择 num=1
-│    │
-│    └─ i=2
-│         │
-│         └─ i=3
-│              return
-│         ↑
-│       回到 i=2
-│    ↑
-│  回到 i=1
-│
-├─ 选择 num=2
-│    │
-│    └─ i=2
-│
-*/
-
-/*
-
-for 每个选择 {
-    if 不合法 {
-        continue          // Pruning 剪枝
-    }
-
-    做选择
-
-    backtrack(下一层)
-
-    撤销选择              // Backtrack
-}
-
+注意：
+position → 每层递归自己的局部状态，return 后自然恢复
+used[]   → 所有递归层共享，必须手动撤销
 */
 
 func countArrangement(n int) int {
@@ -140,36 +72,43 @@ func countArrangement(n int) int {
 	// 	[1,2,3]
 	// 0 1 2 3   长度4
 	// 同一个 i 要共用一个 []
-	perm := make([]bool, n+1)
-	return gerValidPerm(1, n, perm)
+	// used := make([]bool, n+1)，用 []bool 会比 map 更轻量，因为数字范围明确就是 1...n
+
+	// 统一用map
+	used := make(map[int]bool)
+	result := 0
+	backtrack(1, n, used, &result)
+	return result
 }
 
-func gerValidPerm(i int, n int, perm []bool) int {
-	// 所有位置都放完了 [ , , ]，表示找到1个合法的
-	if i > n { // i (1 <= i <= n)
-		return 1
+// todo 注释写“为什么”，少写“代码正在做什么”
+func backtrack(position int, n int, used map[int]bool, result *int) {
+	// 终止条件，所有位置都放完了 [ , , ]，表示找到1个合法的
+	if position > n { // i (1 <= i <= n)
+		*result++
+		return
 	}
 
-	var result = 0
-	// [ , , ] 然后一格一格放数字，确定一个之后，就 判断下一个 i+1
 	for num := 1; num <= n; num++ {
-
-		if perm[num] {
+		// 当前数字已使用
+		if used[num] {
 			continue
 		}
 
-		// 不符合条件
-		if num%i != 0 && i%num != 0 {
+		// 不符合当前位置的整除条件->pruning
+		if num%position != 0 && position%num != 0 {
 			continue
 		}
 
 		// 做选择
-		perm[num] = true
-		// 递归放下一个数字, 共用一个 perm。 只是把 i + 1 的值传给下一层，上一层的 i 根本没变
-		result += gerValidPerm(i+1, n, perm)
-		// 撤销选择
-		perm[num] = false
+		used[num] = true
+		// 填下一个位置
+		backtrack(position+1, n, used, result)
+		// 撤销刚才的选择
+		// todo position 是每层自己的局部状态，不需要像 used 一样手动恢复
+		// todo used[]   → 所有递归层共享，必须手动撤销
+		used[num] = false
 	}
 
-	return result
+	return
 }
