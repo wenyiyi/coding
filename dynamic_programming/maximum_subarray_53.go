@@ -21,28 +21,46 @@ Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 */
 
 /*
-dp[i] = 以 nums[i] 结尾的最大连续子数组和
-subarray: a contiguous/kənˈtiɡyəwəs/ non-empty sequence of elements within an array
-subsequence: 不要求 contiguous
+问题：整个 nums 中，和最大的连续子数组是多少？ subarray=必须连续
+
+第一步：怎么定义dp[]
+dp[i]=以i结尾的最大连续子数组的和
+
+第二步：要得到 dp[i]，怎么从更小的问题得到？
+dp[i-1] = 以前一个元素结尾的最大连续子数组和
+
+nums = [-2, 1, -3, 4]
+假如来到了 4
+① 把前面的连续子数组接过来，再加 4 dp[i-1] + nums[i]
+② 前面的不要了，直接从 4 重新开始 nums[i]
+dp[i]=max(num[i],dp[i-1]+nums[i])，todo 这里不是和 dp[i] 比，因为 dp[i] 还没算出来
+
+第三步：初始化状态
+dp[0] = nums[0] 可能为负数，0，正数
+
+第四步：return 什么
+return max(dp)
 */
 func maxSubArray(nums []int) int {
+	// todo 先校验入参
 	if len(nums) == 0 {
 		return 0
 	}
 
-	// dp[i] = 以 nums[i] 结尾的最长递增子序列长度
+	// 第一步定义 dp[i] = 以 nums[i] 结尾的最长递增子序列长度
 	dp := make([]int, len(nums))
 
-	// 初始化
+	// 第三步：初始化
 	dp[0] = nums[0]
 
 	result := nums[0]
-
-	for curr := 1; curr < len(nums); curr++ {
+	for i := 1; i < len(nums); i++ {
 		// 因为要求连续，只能接 curr-1
-		dp[curr] = max(dp[curr], dp[curr-1]+nums[curr])
-		result = max(result, dp[curr])
+		// 第二步，要得到 dp[i]，怎么从更小的问题得到
+		dp[i] = max(dp[i], dp[i-1]+nums[i])
+		result = max(result, dp[i])
 	}
 
+	// 第四步，返回max(dp)
 	return result
 }
