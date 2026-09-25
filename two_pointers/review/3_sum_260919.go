@@ -45,7 +45,7 @@ func threeSum(nums []int) [][]int {
 			sum := nums[i] + nums[left] + nums[right]
 			if sum == 0 {
 				result = append(result, []int{nums[i], nums[left], nums[right]})
-				// todo 先移动，再跟刚才使用过的值对比
+				// todo 找到后，先移动，再跟刚才使用过的值对比
 				// for left < right && nums[left] == nums[left+1] {
 				//					left++
 				//				}

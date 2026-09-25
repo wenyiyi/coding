@@ -38,6 +38,9 @@ Output: -1
 	左边 4567正常生序
 	右边 7012 不是有序的
 	需要判断旋转断点在哪里
+
+
+todo 总结：哪边有序？target 在不在有序那边？
 */
 
 func search(nums []int, target int) int {
@@ -52,14 +55,14 @@ func search(nums []int, target int) int {
 		// 问题1：哪一边有序？
 		// 问题2：target 在不在有序的那一边？
 		if nums[left] <= nums[mid] { // 左边有序
-			// target 在左边
-			if target >= nums[left] && target <= nums[mid] {
+			// target 在左边 todo 不需要 target <= nums[mid]，因为前面已经判断过 target和nums[mid]
+			if target >= nums[left] && target < nums[mid] {
 				right = mid - 1
 			} else {
 				left = mid + 1
 			}
 		} else {
-			if target >= nums[mid] && target <= nums[right] {
+			if target > nums[mid] && target <= nums[right] {
 				left = mid + 1
 			} else {
 				right = mid - 1

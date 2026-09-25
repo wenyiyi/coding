@@ -74,8 +74,25 @@ func strStrKMP(haystack string, needle string) int {
 	return -1
 }
 
+/*
+'s' = 115
+int('s') = 115
+
+’0‘=48
+'1'=49
+...
+'9'=57 int('9') = 57
+'A'=65 int('A') == 65
+'a'=97 int('a') == 97
+
+// 数字字符 → 真正的数字
+'7' - '0'
+// 55 - 48 = 7
+*/
+
 // Rabin-Karp = Sliding Window + Hash
 func strStrRabinKarp(haystack string, needle string) int {
+	// todo 校验参数
 	h := len(haystack)
 	n := len(needle)
 	if n > h {
@@ -94,6 +111,7 @@ func strStrRabinKarp(haystack string, needle string) int {
 	// len(haystack)-len(needle)，i 最多只能走到还能完整放下 needle 的位置
 	for i := 0; i <= h-n; i++ {
 		// hash 一样，再比较字符串
+		// hash 是为了快速排除“不可能匹配”的窗口；字符串比较是为了处理 hash collision
 		if windowHash == needleHash && haystack[i:i+n] == needle {
 			return i
 		}

@@ -15,6 +15,10 @@ import "sort"
 	Ensure that the resulting list does not contain any duplicate triplets.
     input: nums = [-1,0,1,2,-1,-1]
     output: [[-1,-1,2],[-1,0,1]]
+	Constraints:
+
+	3 <= nums.length <= 3000
+	-105 <= nums[i] <= 105
 
 	题目特征：
 	找三个不同位置的数
@@ -58,20 +62,24 @@ import "sort"
 */
 
 func threeSum918(nums []int) [][]int {
+	// 参数校验 3 <= nums.length <= 3000，目前规定了长度，所以不需要再检验
 	var result [][]int
+	// 1 排序
 	sort.Ints(nums)
 
+	// 2 固定一个数，后面至少留2位  i < len(nums)-2
 	for i := 0; i < len(nums)-2; i++ {
 		// todo num[i]需要去重
 		// nums[i] == nums[i+1]  ❌ 看“下一个是不是重复”
 		// nums[i] == nums[i-1]  ✅ 看“这个是不是已经处理过”
+		// 3 固定的数需要去重（第一层去重）
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
 		left := i + 1
 		right := len(nums) - 1
 
-		// 先固定一个数，然后找另外两个
+		// 4 找另外两个
 		for left < right {
 			sum := nums[i] + nums[left] + nums[right]
 			if sum < 0 {
@@ -79,11 +87,12 @@ func threeSum918(nums []int) [][]int {
 			} else if sum > 0 {
 				right--
 			} else {
-				// 找到了收答案
+				// 5 找到了收答案
 				result = append(result, []int{nums[i], nums[left], nums[right]})
 				left++
 				right--
 				// todo 去重，不是“结果出来以后查重”，而是“已经用过的数字，不再让它进入下一轮搜索” for left < right
+				// 6 找到后的数也要去重（第二层去重）
 				for left < right && nums[left] == nums[left-1] {
 					left++
 				}
