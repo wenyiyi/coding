@@ -50,6 +50,18 @@ type TreeNode struct {
 3 子问题解决后，我怎么得到答案？-> 左右深度取较大值，再加自己这一层
 */
 
+/*
+
+三问
+① dfs(node) 到底返回什么？
+② node == nil 返回什么？
+③ 左右子树已经帮我算好了，我当前节点要做什么？
+
+① dfs 返回：当前树最大深度
+② nil：0
+③ max(left, right) + 1
+*/
+
 func maxDepth(root *TreeNode) int {
 	// 什么时候直接结束？ ->  空节点表示结束，返回 0
 	if root == nil {
