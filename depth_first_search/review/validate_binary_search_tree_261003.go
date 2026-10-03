@@ -28,17 +28,18 @@ import "math"
 */
 
 func isValidBST(root *TreeNode) bool {
-	var dfs func(node *TreeNode, lower, upper int) bool
-	dfs = func(node *TreeNode, lower, upper int) bool {
+	// todo 统一用int64
+	var dfs func(node *TreeNode, lower, upper int64) bool
+	dfs = func(node *TreeNode, lower, upper int64) bool {
 		if node == nil {
 			return true
 		}
-		// todo 检查自己是否合法
-		if node.Val < lower || node.Val > upper {
+		// todo 检查自己是否合法    bst不允许相等
+		if int64(node.Val) <= lower || int64(node.Val) >= upper {
 			return false
 		}
-		left := dfs(node.Left, lower, node.Val)
-		right := dfs(node.Right, node.Val, upper)
+		left := dfs(node.Left, lower, int64(node.Val))
+		right := dfs(node.Right, int64(node.Val), upper)
 		return left && right
 	}
 
