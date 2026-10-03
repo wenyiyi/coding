@@ -1,9 +1,13 @@
-package breadth_first_search
+package depth_first_search
 
-import "math"
+import (
+	"coding/breadth_first_search"
+	"math"
+)
 
 /*
-*
+
+https://leetcode.com/problems/validate-binary-search-tree/
 Given the root of a binary tree, determine if it is a valid binary search tree (BST).
 
 A valid BST is defined as follows:
@@ -63,10 +67,10 @@ dfs(node, lower, upper)
 ② nil：true
 ③ 检查自己是否合法，然后让左右子树继续检查
 */
-func isValidBST(root *TreeNode) bool {
-	var dfs func(node *TreeNode, lower, upper int64) bool
+func isValidBST(root *breadth_first_search.TreeNode) bool {
+	var dfs func(node *breadth_first_search.TreeNode, lower, upper int64) bool
 
-	dfs = func(node *TreeNode, lower, upper int64) bool {
+	dfs = func(node *breadth_first_search.TreeNode, lower, upper int64) bool {
 		// 最底层一定会返回true，空树是合法 BST
 		if node == nil {
 			return true
