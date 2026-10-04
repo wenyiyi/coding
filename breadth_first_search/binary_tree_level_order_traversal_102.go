@@ -21,6 +21,24 @@ Example 3:
 Input: root = []
 Output: []
 */
+/*
+root 入队
+
+while queue 不为空：
+    固定当前层 size
+    创建 level
+
+    重复 size 次：
+        出队一个节点
+        → 加入 level
+        → 左孩子入队
+        → 右孩子入队
+
+    level 加入 result
+
+todo Tree BFS = Queue；按层 BFS = 每层开始固定 size := len(queue)
+
+*/
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -28,25 +46,25 @@ type TreeNode struct {
 }
 
 func levelOrder(root *TreeNode) [][]int {
+	// todo 输出结果要按层按组，所以需要二维
 	result := [][]int{}
 	if root == nil {
 		return result
 	}
-	// 把root放入队列
+	// 创建队列，把root放入队列
 	queue := []*TreeNode{root}
 	for len(queue) > 0 {
-		// 记录当前 queue 的数量，固定下来
+		// todo 每层开始先固定 size := len(queue)，这一轮只处理 size 个节点。
 		currQueueSize := len(queue)
-		// level := make([]int, size) 默认都是0，不要用
+		// level := make([]int, size) 默认都是0，不要用 todo 需要level去装每一层的元素
 		level := []int{}
-
-		// 一层一层处理，队列没有数据了就表示这一层处理完了
+		// todo 处理完进入本层时记录的 currQueueSize 个节点，就表示这一层结束
 		for i := 0; i < currQueueSize; i++ {
-			// 模拟出队
+			// 取头节点
 			node := queue[0]
-			// 1: 表示从1取到最后
+			// todo 出队，1: 表示从1取到最后
 			queue = queue[1:]
-
+			// 加入层
 			level = append(level, node.Val)
 
 			// 把左右节点入队
