@@ -1,6 +1,8 @@
 package depth_first_search
 
 /*
+https://leetcode.com/problems/same-tree/
+
 Given the roots of two binary trees p and q, write a function to check if they are the same or not.
 Two binary trees are considered the same if they are structurally identical完全相同的,
 and the nodes have the same value.

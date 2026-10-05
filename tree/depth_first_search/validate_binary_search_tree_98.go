@@ -1,7 +1,7 @@
 package depth_first_search
 
 import (
-	"coding/breadth_first_search"
+	"coding/tree/breadth_first_search"
 	"math"
 )
 
