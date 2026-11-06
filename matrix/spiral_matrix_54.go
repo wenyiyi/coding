@@ -33,6 +33,9 @@ n == matrix[i].length
 一圈一圈向内输出矩阵：
 先处理外圈
 再处理内圈
+
+todo 四条边的角不能重复
+todo 只有1行，bottom不能重复输出；只有1列，right不能重复输出
 */
 func spiralOrder(matrix [][]int) []int {
 	result := []int{}
