@@ -9,6 +9,16 @@ return the number of islands.
 An island is surrounded by water and is formed by connecting adjacent邻近的 lands horizontally or vertically.
 You may assume all four edges of the grid are all surrounded by water.
 
+Example 1:
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+
 */
 /*
 DP：
@@ -85,11 +95,9 @@ Tree DFS 三问                 Grid DFS 三问
 ③ 当前节点做什么？            ③ 当前格做什么 + 往哪走？
 
 
+todo
 第一问：dfs(row, col) 是干什么的？
-从 (row, col) 出发，把与它相连的整座岛全部访问一遍，所以它其实不需要返回值
-dfs(row, col) 只负责一件事：
-把从这个位置连接出去的整座岛淹掉
-里面不负责 num++
+从 (row, col) 出发，首次出现为1，就表示是岛，num++；然后把与它相连的整座岛全部访问一遍，访问过的设置为0
 
 第二问：什么时候停止？
 ① 越界了
@@ -102,7 +110,6 @@ grid[row][col] == '0'
 当前 1 → 标记成 0
 然后 DFS 上下左右
 grid[row][col] = '0'
-
         上
         ↑
 左 ← 当前格 → 右
@@ -114,6 +121,7 @@ todo 外层扫描负责“数岛”，DFS 负责“淹岛”
 */
 func numIslands(grid [][]byte) int {
 
+	// todo 不需要返回值，因为不用统计岛的面积
 	var dfs func(row, col int)
 	// 从当前格子出发，把与它相连的整个岛访问掉
 	dfs = func(row, col int) {
@@ -129,8 +137,8 @@ func numIslands(grid [][]byte) int {
 		dfs(row, col-1)
 		dfs(row, col+1)
 	}
-	num := 0
 
+	num := 0
 	// 外层双循环：负责发现“新岛”
 	for row := 0; row < len(grid); row++ {
 		for col := 0; col < len(grid[0]); col++ {
