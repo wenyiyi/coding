@@ -64,17 +64,16 @@ put(3, 3)
 {3,3}-{1,1}-{2,2}
 移除{2,2}
 
-
-
-
-
+todo 思路
+- 用 Map 来存节点
+- Doubly Linked List 双向链表
 */
 
 type Node struct {
-	key   int
+	key   int // todo 面试漏写
 	value int
 	next  *Node
-	pre   *Node
+	pre   *Node // todo 面试漏写，其实是双向链
 }
 
 type LRUCache struct {

@@ -61,9 +61,9 @@ func reverseList(head *ListNode) *ListNode {
 		next := curr.Next
 		// 2 当前指针反转
 		curr.Next = prev
-		// 3 prev 往前
+		// 3 prev 往后
 		prev = curr
-		// 4 curr 往前
+		// 4 curr 往后
 		curr = next
 	}
 
