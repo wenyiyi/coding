@@ -47,6 +47,8 @@ step 2 bfs 按分钟传播
 但新加入的橘子不能在同一分钟继续传播，所以，我们需要在每一轮 BFS 开始时，记录当前队列长度
 
 向上下左右四个方向传播，新鲜的改成烂，然后加入队列，同时改变数量
+
+todo 初始化 → 固定当前层 size → 出队 → 遍历四方向 → 标记并入队 → minutes++ → 检查 fresh
 */
 func orangesRotting(grid [][]int) int {
 	// Queue stores the positions of rotten oranges.
