@@ -3,7 +3,12 @@ package linked_list
 /*
 https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
 Input: head = [1,1,2,3,3]
-Output: [1,2,3]
+Output: [1,2,3]0\
+*/
+/*
+时间复杂度：O(n)
+空间复杂度：O(1)
+todo 核心：利用链表已排序的特点，只比较相邻节点。
 */
 
 /**
