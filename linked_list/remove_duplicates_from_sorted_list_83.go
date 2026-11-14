@@ -22,7 +22,7 @@ func deleteDuplicates(head *ListNode) *ListNode {
 	//todo 不需要两个指针
 	cur := head
 
-	// todo 少了 cur.Next != nil
+	// todo 少了 cur.Next != nil，因为我们在循环中需要访问 cur.Next.Val，所以必须先确保 cur.Next != nil
 	for cur != nil && cur.Next != nil {
 		if cur.Val == cur.Next.Val {
 			// Skip the duplicate node.
